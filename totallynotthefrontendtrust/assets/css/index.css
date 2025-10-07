@@ -74,8 +74,8 @@ body::-webkit-scrollbar {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin: 0 auto;
 }
-
-/* .container:hover {
+/*
+ .container:hover {
    backdrop-filter: blur(20px);
   border: 2px solid transparent;
   box-shadow: 
@@ -117,7 +117,6 @@ body::-webkit-scrollbar {
   align-items: center;
   z-index: 9999;
   color: white;
-  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black */
 transition: all 1s ease;
 }
 #loader h1 {
@@ -161,7 +160,23 @@ transition: all 1s ease;
   overflow-y: auto;
   max-height: 300px;
 }
-
+.proxy-button {
+  position: relative;
+  padding: 1rem 2rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  z-index: 1;
+  overflow: hidden;
+   transition: 0.3s ease;
+}
+.proxy-button:hover {
+  transform: translateY(-20%) scale(1.1);
+  transition: 0.3s ease;
+}
+/*
 .proxy-button {
   position: relative;
   padding: 1rem 2rem;
@@ -179,8 +194,8 @@ transition: all 1s ease;
   background-color: #ffffff;
   transform: scale(1.1);
   transition: all 0.3s ease;
-}
-/*.proxy-button::before {
+}*/
+.proxy-button::before {
   content: '';
   position: absolute;
   top: -2px;
@@ -207,7 +222,7 @@ transition: all 1s ease;
   100% {
     background-position: 100% 50%;
   }
-}*/
+}
 /* Sidebar styling */
 
 .top-nav {

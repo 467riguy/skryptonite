@@ -1,3 +1,4 @@
+
 /* hop off, skids */
 window.onload = function() {
     console.log("Window loaded, attempting to load particles.js");
@@ -16,11 +17,6 @@ function setBackground(background) {
     // Show alert when background is changed
     alert("𝔹𝕒𝕔𝕜𝕘𝕣𝕠𝕦𝕟𝕕 𝕙𝕒𝕤 𝕓𝕖𝕖𝕟 𝕔𝕙𝕒𝕟𝕘𝕖𝕕 𝕥𝕠: " + background);
 }
-
-
-
-
-
 const savedBackground = localStorage.getItem('theme') || 'whatss';
 document.body.setAttribute('theme', savedBackground);
 
@@ -30,7 +26,80 @@ function setTheme(theme) {
     localStorage.setItem('theme', theme);
     // Show alert when theme is changed
     alert("𝕋𝕙𝕖𝕞𝕖 𝕙𝕒𝕤 𝕓𝕖𝕖𝕟 𝕔𝕙𝕒𝕟𝕘𝕖𝕕 𝕥𝕠: " + theme);
+
+
+
+
+
+    
 }
+class TxtType {
+    constructor(el, toRotate, period) {
+      this.toRotate = toRotate;
+      this.el = el;
+      this.loopNum = 0;
+      this.period = parseInt(period, 10) || 2000;
+      this.txt = "";
+      this.tick();
+      this.isDeleting = false;
+    }
+
+    tick() {
+      const i = this.loopNum % this.toRotate.length;
+      const fullTxt = this.toRotate[i];
+
+      if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+
+      this.el.innerHTML = '<span class="typewriter">' + this.txt + "</span>";
+
+      let delta = 250 - Math.random() * 150;
+
+      if (this.isDeleting) {
+        delta /= 2;
+      }
+
+      if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === "") {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+      }
+
+      setTimeout(() => this.tick(), delta);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.getElementsByClassName("random-word-generator");
+    for (let i = 0; i < elements.length; i++) {
+      const toRotate = elements[i].getAttribute("randomWords");
+      const period = elements[i].getAttribute("time");
+      if (toRotate) {
+        new TxtType(elements[i], JSON.parse(toRotate), period);
+      }
+    }
+
+    const css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML =
+
+        // KEEP THIS COMMENTED OUT, IT'S JUST FOR REFERENCE
+   /*   ".random-word-generator > .typewriter { border-right: 0.06em solid #fff}";*/
+        ".a > .a { border-right: 0.06em solid #fff}";
+    document.body.appendChild(css);
+  });
+
+
+
+
+
+      // Music
     document.addEventListener('DOMContentLoaded', () => {
         // --- Music Player Setup ---
         const audioPlayer = document.getElementById('audio-player');
