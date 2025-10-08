@@ -336,8 +336,8 @@ function AB() {
       const style = iframe.style;
       const link = doc.createElement("link");
 
-      const name = localStorage.getItem("name") || "My Drive - Google Drive";
-      const icon = localStorage.getItem("icon") || "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png";
+      const name = localStorage.getItem("name") || "Math Bros. | Dashboard";
+      const icon = localStorage.getItem("icon") || "/assets/media/favicon/daddy.png.png";
 
       doc.title = name;
       link.rel = "icon";
@@ -406,7 +406,7 @@ function SaveEngine() {
     localStorage.setItem("engine", customEngine.value.trim());
     localStorage.setItem("enginename", "Custom");
   } else {
-    alert("𝕊𝕖𝕒𝕣𝕔𝕙 𝕖𝕟𝕘𝕚𝕟𝕖 𝕤𝕒𝕧𝕖𝕕.");
+    alert("Search engine saved..");
   }
 }
 
@@ -500,7 +500,7 @@ function importSaveData() {
             localStorage.setItem(key, value);
           });
         }
-        alert('𝕐𝕠𝕦 𝕚𝕞𝕡𝕠𝕣𝕥𝕖𝕕 𝕪𝕠𝕦𝕣 𝕤𝕒𝕧𝕖 𝕕𝕒𝕥𝕒, 𝕚𝕥 𝕚𝕤 𝕘𝕠𝕠𝕕 𝕚𝕗 𝕥𝕙𝕚𝕤 𝕝𝕚𝕟𝕜 𝕘𝕖𝕥𝕤 𝕓𝕝𝕠𝕔𝕜𝕖𝕕, 𝕠𝕣 𝕒𝕟𝕠𝕥𝕙𝕖𝕣 𝕝𝕚𝕟𝕜 𝕚𝕤 𝕔𝕣𝕖𝕒𝕥𝕖𝕕, 𝕒𝕝𝕤𝕠 𝕚𝕗 𝕪𝕠𝕦 𝕙𝕒𝕧𝕖 𝕘𝕠𝕠𝕕 𝕡𝕣𝕠𝕘𝕣𝕖𝕤𝕤 𝕠𝕟 𝕒 𝕘𝕒𝕞𝕖 𝕠𝕟 𝕥𝕙𝕚𝕤 𝕨𝕖𝕓𝕤𝕚𝕥𝕖.')
+        alert(' You imported your save data, it is good if this link gets blocked, or another link is created.')
       } catch (error) {
         console.error('Error parsing JSON file:', error);
       }
