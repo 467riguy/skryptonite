@@ -16,8 +16,8 @@ try {
   }
 }
 
-const form = document.getElementById("fv");
-const input = document.getElementById("iv");
+const form = document.getElementById("4m");
+const input = document.getElementById("searchPass");
 
 if (form && input) {
   form.addEventListener("submit", async event => {

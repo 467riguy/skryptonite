@@ -91,7 +91,7 @@ body {
 }
 .container-max h1 {
     font-size: 3.5em;
-    font-weight: 700;
+    font-weight: bold;
     margin-bottom: 5px;
     color: var(--primary-light); /* Highlight the main title */
     text-shadow: 0 2px 5px var(--shadow-strong);
@@ -99,7 +99,7 @@ body {
 
 .container-max h2 {
     font-size: 1.5em;
-    font-weight: 400;
+    font-weight: bold;
     margin-top: 0;
     color: var(--text-color);
     opacity: 0.9;
@@ -129,7 +129,7 @@ body {
 }
 .container-outer h1 {
     font-size: 3.5em;
-    font-weight: 700;
+    font-weight: bold;
     margin-bottom: 5px;
     color: var(--primary-light); /* Highlight the main title */
     text-shadow: 0 2px 5px var(--shadow-strong);
@@ -137,14 +137,14 @@ body {
 
 .container-outer h2 {
     font-size: 1.5em;
-    font-weight: 400;
     margin-top: 0;
     color: var(--text-color);
     opacity: 0.9;
+    font-weight: bold;
 }
 .container-inner h1 {
     font-size: 3.5em;
-    font-weight: 700;
+    font-weight: bold;
     margin-bottom: 5px;
     color: var(--primary-light); /* Highlight the main title */
     text-shadow: 0 2px 5px var(--shadow-strong);
@@ -152,28 +152,28 @@ body {
 
 .container-inner h2 {
     font-size: 1.5em;
-    font-weight: 400;
     margin-top: 0;
     color: var(--text-color);
     opacity: 0.9;
+    font-weight: bold;
 }
 .container-inner h3 {
+    font-weight: bold;
     font-size: 1.5em;
-    font-weight: 400;
     margin-top: 0;
     color: var(--text-color);
     opacity: 0.9;
 }
 .container-outer h3 {
     font-size: 1.5em;
-    font-weight: 400;
+    font-weight: bold;
     margin-top: 0;
     color: var(--text-color);
     opacity: 0.9;
 }
 .container-max h3 {
     font-size: 1.5em;
-    font-weight: 400;
+    font-weight: bold;
     margin-top: 0;
     color: var(--text-color);
     opacity: 0.9;
@@ -352,29 +352,72 @@ body {
     opacity: 1;
     transform: translateY(0);
 }
+#live-clock {
+    border: 1px solid ghostwhite;
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 25px; 
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: inline-block;
+    background: none;
+}
 
-        /* --- Live Clock Styles --- */
-        #live-clock {
-            font-family: 'Poppins', sans-serif; /* Ensure Poppins is used for the clock */
-            font-size: 1.8em;
-            font-weight: 600;
-            color: var(--primary-light); /* Highlight color */
-            text-shadow: 0 2px 5px var(--shadow-strong);
-            margin-bottom: 25px; /* Space between clock and main title */
-            background-color: var(--card-bg); /* Use a subtle glass background */
-            border-radius: 10px;
-            padding: 10px 20px;
-            border: 1px solid var(--glass-border);
-            display: inline-block; /* Wrap content tightly */
-        }
+.live-clock-button {
+    color: #fff;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    width: 670px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background-clip: padding-box;
+    border: 1px solid ghostwhite;
+}
+/* Time and Battery Section */
+.time,
+.battery {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #fff; /* Ensure text is white */
+}
+.battery {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
 
-        @media (max-width: 768px) {
-            #live-clock {
-                font-size: 1.4em;
-                margin-bottom: 20px;
-                padding: 8px 15px;
-            }
-        }
+.battery-icon {
+    width: 50px; /* Increased width for better visibility */
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    margin-right: 5px;
+    position: relative;
+}
+
+.battery-icon::after {
+    content: "";
+    width: 6px; /* Increased size for better visibility */
+    height: 10px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
+}
+
+.battery-fill {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0%; /* Dynamic width will be set with JavaScript */
+    transition: width 0.3s ease;
+    border-radius: 3px; /* Rounded corners for battery fill */
+}
 .music-description {
     font-size: 1.1em;
     color: rgba(255, 255, 255, 0.8);

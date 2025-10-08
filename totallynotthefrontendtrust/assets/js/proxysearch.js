@@ -1,7 +1,7 @@
 window.addEventListener("load", () => {
-  navigator.serviceWorker.register("../sw.js?v=06-07-25", { scope: "/a/" });
-  const form = document.getElementById("fv");
-  const input = document.getElementById("iv");
+  navigator.serviceWorker.register("../sw.js?v=07-03-big25", { scope: "/a/" });
+  const form = document.getElementById("4m");
+  const input = document.getElementById("searchPass");
   if (form && input) {
     form.addEventListener("submit", async event => {
       event.preventDefault();
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", event => {
     newIframe.sandbox =
       "allow-same-origin allow-scripts allow-forms allow-pointer-lock allow-modals allow-orientation-lock allow-presentation allow-storage-access-by-user-activation";
     // When Top Navigation is not allowed links with the "top" value will be entirely blocked, if we allow Top Navigation it will overwrite the tab, which is obviously not wanted.
-    tabTitle.textContent = `ℙ𝕣𝕠𝕩𝕪 𝕋𝕒𝕓 ${tabCounter}`;
+    tabTitle.textContent = `Proxy tab ${tabCounter}`;
     tabTitle.className = "t";
     newTab.dataset.tabId = tabCounter;
     newTab.addEventListener("click", switchTab);
