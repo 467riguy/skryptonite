@@ -6,12 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="nav-container">
         <ul class="nav-links">
       <!--    <div class="logo">SKR</div>-->
-          <li><a href="/home"><i class="fas fa-house cuhs"></i><span>ℍ𝕠𝕞𝕖</span></a></li>
-          <li><a href="/games"><i class="fas fa-gamepad cuhs"></i><span>𝔾𝕒𝕞𝕖𝕤</span></a></li>
-          <li><a href="/apps"><i class="fas fa-mobile-alt cuhs"></i><span>𝔸𝕡𝕡𝕤</span></a></li>
-          <li><a href="/animes"><i class="fas fa-tv cuhs"></i><span>𝔸𝕟𝕚𝕞𝕖</span></a></li>
-          <li><a href="/settings"><i class="fas fa-gear cuhs"></i><span>𝕊𝕖𝕥𝕥𝕚𝕟𝕘𝕤</span></a></li>
-          <li><a href="/song"><i class="fas fa-music cuhs"></i><span>𝕊𝕠𝕟𝕘𝕤</span></a></li>
+          <li><a href="/home"><i class="fas fa-house cuhs"></i><span>Home</span></a></li>
+          <li><a href="/games"><i class="fas fa-gamepad cuhs"></i><span>Games</span></a></li>
+          <li><a href="/apps"><i class="fas fa-mobile-alt cuhs"></i><span>Apps</span></a></li>
+          <li><a href="/animes"><i class="fas fa-tv cuhs"></i><span>Anime</span></a></li>
+          <li><a href="/settings"><i class="fas fa-gear cuhs"></i><span>Settings</span></a></li>
+          <li><a href="/song"><i class="fas fa-music cuhs"></i><span>Songs</span></a></li>
         </ul>
       </div>
     </nav>

@@ -467,3 +467,13 @@ updateBattery();
 navigator.getBattery().then((battery) => {
   battery.addEventListener("levelchange", updateBattery);
 });
+// This is the code you must include:
+window.onbeforeunload = function (event) {
+  const confirmationMessage = 'Leave Site?';
+  
+  // You must set the returnValue property for the prompt to display.
+  (event || window.event).returnValue = confirmationMessage;
+  
+  // And you must return the value for most modern browsers.
+  return confirmationMessage;
+};

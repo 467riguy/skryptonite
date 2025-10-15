@@ -1,4 +1,4 @@
-// skids, better hop tf off
+// skids, better hop off
 import fs from "node:fs"
 import http from "node:http";
 import path from "node:path";
