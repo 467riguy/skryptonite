@@ -8,6 +8,104 @@ body {
     min-height: 100vh;
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
+/* start*/
+.glowing-text {
+    font-size: 45px;
+    font-weight: bold;
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
+    position: relative;
+    z-index: 10;
+}
+
+.status {
+    color: blue;
+     animation: glowingAnimation 4s ease-in-out infinite;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+@keyframes glowingAnimation {
+    0% {
+        color: blue;
+        text-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+    }
+
+    50% {
+        color: red;
+        text-shadow: none;
+    }
+
+    67% {
+        color: black;
+        text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+    }
+
+    83% {
+        color: green;
+        text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    }
+
+    100% {
+        color: blue;
+        text-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+    }
+}
+.particle-container {
+    position: fixed; /* This is the key change */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensures particles are behind your content */
+    pointer-events: none; /* Prevents particles from blocking clicks */
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+    animation: twinkling 1.5s infinite alternate;
+}
+
+@keyframes twinkling {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0.4;
+    }
+}
+.word {
+    color: blue;
+     animation: glowingAnimation 4s ease-in-out infinite;
+    font-size: 20px;
+    margin: 20px;
+    padding: 10px 20px;
+    border: 2px solid #00ffcc;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1); /* Light background for word display */
+    transition: transform 0.5s, opacity 0.5s;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #00ffcc;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #00cc99;
+}
 /*
 @keyframes blink {
     0%, 100% { border-color: transparent; }
@@ -18,9 +116,10 @@ body {
     animation: blink 0.7s step-end infinite;
 }*/
 .random-word-generator {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.45), 
-     0 0 20px rgba(255, 255, 255, 0.45);
+    color: blue;
+     animation: glowingAnimation 4s ease-in-out infinite;
 }
+/* end*/
 .column p {
    font-size: 12px;
    color: var(--text-primary);
@@ -30,8 +129,9 @@ body {
    margin-bottom: 12px;
 }
 .column {
-      color: var(--button-text-color);
-       background: var(--primary-color);
+    background: rgba(255, 255, 255, 0.15);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
       display: block;
       cursor: pointer;
       position: relative;
@@ -48,7 +148,6 @@ body {
   background-color: #ffffff;*/
   transform: translatey(-4px);
   transition: all 0.3s ease;
-    background-color: var(--primary-light);
     box-shadow: 0 4px 10px var(--shadow-strong);
 }
 /*
@@ -126,7 +225,8 @@ body {
     font-size: 3.5em;
     font-weight: bold;
     margin-bottom: 5px;
-    color: var(--primary-light); /* Highlight the main title */
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     text-shadow: 0 2px 5px var(--shadow-strong);
 }
 #warning-error {
@@ -136,7 +236,8 @@ body {
     font-size: 1.5em;
     font-weight: bold;
     margin-top: 0;
-    color: var(--text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     opacity: 0.9;
 }
 .container-inner {
@@ -149,6 +250,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px; /* Space between elements within the container */
+}
+.parent-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically if necessary */
 }
 .container-outer {
     background-color: transparent; /* Semi-transparent dark background for content block */
@@ -166,14 +272,16 @@ body {
     font-size: 3.5em;
     font-weight: bold;
     margin-bottom: 5px;
-    color: var(--primary-light); /* Highlight the main title */
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     text-shadow: 0 2px 5px var(--shadow-strong);
 }
 
 .container-outer h2 {
     font-size: 1.5em;
     margin-top: 0;
-    color: var(--text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     opacity: 0.9;
     font-weight: bold;
 }
@@ -181,14 +289,16 @@ body {
     font-size: 3.5em;
     font-weight: bold;
     margin-bottom: 5px;
-    color: var(--primary-light); /* Highlight the main title */
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     text-shadow: 0 2px 5px var(--shadow-strong);
 }
 
 .container-inner h2 {
     font-size: 1.5em;
     margin-top: 0;
-    color: var(--text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     opacity: 0.9;
     font-weight: bold;
 }
@@ -196,21 +306,24 @@ body {
     font-weight: bold;
     font-size: 1.5em;
     margin-top: 0;
-    color: var(--text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     opacity: 0.9;
 }
 .container-outer h3 {
     font-size: 1.5em;
     font-weight: bold;
     margin-top: 0;
-    color: var(--text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     opacity: 0.9;
 }
 .container-max h3 {
     font-size: 1.5em;
     font-weight: bold;
     margin-top: 0;
-    color: var(--text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     opacity: 0.9;
 }
 /* --- Search Container --- */
@@ -246,11 +359,13 @@ body {
 }
 
 .search-box .input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
 }
 
 .search-box .input:focus {
-    background-color: rgba(255, 255, 255, 0.05); /* Slight change on focus */
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite; /* Slight change on focus */
 }
 
 .search-btn {
@@ -275,8 +390,9 @@ body {
 
 /* --- Open Blank Button --- */
 .open-blank-btn {
-    background-color: var(--primary-color);
-    color: var(--button-text-color);
+    background-color: rgba(255, 255, 255, 0.15);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     border: none;
     padding: 15px 30px;
     border-radius: 30px; /* Pill shape for the button */
@@ -292,7 +408,6 @@ body {
 }
 
 .open-blank-btn:hover {
-    background-color: var(--primary-light);
     transform: translateY(-3px); /* Lift effect */
     box-shadow: 0 8px 20px var(--shadow-strong);
 }
@@ -391,7 +506,8 @@ body {
     border: 1px solid ghostwhite;
     font-size: 1.8em;
     font-weight: 600;
-    color: #fff;
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     margin-bottom: 25px; 
     border-radius: 10px;
@@ -401,7 +517,8 @@ body {
 }
 
 .live-clock-button {
-    color: #fff;
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     display: block;
     cursor: pointer;
     position: relative;
@@ -418,7 +535,8 @@ body {
 .battery {
     font-size: 2em;
     margin: 10px 0;
-    color: #fff; /* Ensure text is white */
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
 }
 .battery {
   display: inline-flex;
@@ -455,7 +573,8 @@ body {
 }
 .music-description {
     font-size: 1.1em;
-    color: rgba(255, 255, 255, 0.8);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     margin-top: 0;
     margin-bottom: 20px;
     text-align: center;
@@ -478,7 +597,8 @@ body {
     border: 1px solid var(--glass-border);
     border-radius: 30px; /* Rounded search input */
     background-color: var(--input-bg);
-    color: var(--text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     font-size: 1.1em;
     outline: none;
     box-shadow: inset 0 2px 5px var(--shadow-light);
@@ -487,7 +607,8 @@ body {
 }
 
 #music-search::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
 }
 
 #music-search:focus {
@@ -531,14 +652,16 @@ body {
 #audio-player::-webkit-media-controls-time-remaining-display,
 #audio-player::-webkit-media-controls-timeline,
 #audio-player::-webkit-media-controls-volume-slider {
-    color: var(--primary-light); /* Affects some elements */
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
 }
 
 
 .player-info {
     font-size: 1.2em;
     font-weight: 600;
-    color: var(--player-text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     text-align: center;
     min-height: 1.5em; /* Prevent layout shift */
 }
@@ -558,7 +681,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--button-text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     font-size: 1.2em;
     cursor: pointer;
     box-shadow: 0 3px 10px var(--shadow-strong);
@@ -592,7 +716,8 @@ body {
 
 .no-music-message {
     text-align: center;
-    color: rgba(255, 255, 255, 0.6);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     font-style: italic;
     padding: 20px;
     background-color: var(--input-bg);
@@ -632,7 +757,8 @@ body {
 
 .music-item.active .music-info span,
 .music-item.active .music-info i {
-    color: var(--button-text-color); /* White text for active song */
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
 }
 
 .music-info {
@@ -640,13 +766,15 @@ body {
     align-items: center;
     gap: 10px;
     flex-grow: 1; /* Allows it to take available space */
-    color: var(--text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     font-weight: 500;
     font-size: 1em;
 }
 
 .music-info i {
-    color: var(--primary-light);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     font-size: 1.1em;
 }
 
@@ -659,7 +787,8 @@ body {
 .play-song-btn, .ai-analyze-btn {
     background-color: transparent;
     border: none;
-    color: var(--primary-light);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     cursor: pointer;
     font-size: 1.1em;
     transition: color 0.2s ease, transform 0.2s ease;
@@ -673,7 +802,8 @@ body {
 }
 
 .play-song-btn:hover, .ai-analyze-btn:hover {
-    color: var(--accent-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     transform: scale(1.1);
 }
 
@@ -697,7 +827,8 @@ body {
     margin-top: 10px; /* Space from buttons/info */
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
-    color: var(--ai-analysis-text);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     font-size: 0.9em;
     line-height: 1.4;
     transition: all 0.3s ease-out;
@@ -717,7 +848,8 @@ body {
 .loading-analysis {
     text-align: center;
     font-style: italic;
-    color: rgba(255, 255, 255, 0.5);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     margin: 0;
 }
 
@@ -828,13 +960,15 @@ body {
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 10px;
-    color: var(--primary-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
 }
 
 .settings-card p {
     font-size: 0.95em;
     line-height: 1.6;
-    color: rgba(255, 255, 255, 0.8);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
 }
 
 /* --- Input Fields (Key Forms) --- */
@@ -846,7 +980,8 @@ body {
     border: 1px solid var(--glass-border);
     border-radius: 20px; /* Slightly rounded corners */
     background-color: var(--input-bg);
-    color: var(--text-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     font-size: 1em;
     outline: none;
     box-shadow: inset 0 1px 3px var(--shadow-light);
@@ -855,7 +990,8 @@ body {
 }
 
 .key-form::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
 }
 
 .key-form:focus {
@@ -884,8 +1020,9 @@ background-color: rgba(0, 0, 0, 0.55);
 }
 /* --- Buttons --- */
 .key-button {
-    background-color: var(--primary-color);
-    color: var(--button-text-color);
+    background: rgba(255, 255, 255, 0.15);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
     border: none;
     padding: 10px 20px;
     border-radius: 25px; /* Pill shape for buttons */
@@ -896,7 +1033,6 @@ background-color: rgba(0, 0, 0, 0.55);
     margin-top: 10;
 }
 .key-button:hover {
-    background-color: var(--primary-light);
     transform: translateY(-4px); /* Slight lift on hover */
     box-shadow: 0 4px 10px var(--shadow-strong);
 }
@@ -927,8 +1063,9 @@ background-color: rgba(0, 0, 0, 0.55);
   transition: all 0.3s ease;
 }*/
 .proxy-button {
-    color: var(--button-text-color);
-    background: var(--primary-color);
+    color: blue;
+    animation: glowingAnimation 4s ease-in-out infinite;
+    background: rgba(255, 255, 255, 0.15);
   position: relative;
   padding: 1rem 2rem;
   border: 2px solid transparent;
@@ -945,7 +1082,6 @@ background-color: rgba(0, 0, 0, 0.55);
   background-color: #ffffff;*/
   transform: translatey(-4px);
   transition: all 0.3s ease;
-    background-color: var(--primary-light);
     box-shadow: 0 4px 10px var(--shadow-strong);
 }
 select#backgroundChange {

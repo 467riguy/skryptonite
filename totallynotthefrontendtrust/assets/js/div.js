@@ -6,7 +6,7 @@ window.onload = function() {
         console.log('callback - particles.js config loaded');
     });
 };
-const savedTheme = localStorage.getItem('background') || 'cuh';
+const savedTheme = localStorage.getItem('background') || 'catppuccin-mochaa';
 document.body.setAttribute('background', savedTheme);
 
 // Define the setTheme function globally
@@ -84,6 +84,133 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// new code
+const particles = [];
+const statusElement = document.getElementById('status');
+
+// Create the particle container in JavaScript
+const particleContainer = document.createElement('div');
+particleContainer.className = 'particle-container';
+document.body.appendChild(particleContainer);
+
+// Define the words for the random word function
+const words = [
+    "Games, Apps, Music, Anime, UI",
+    "Ragebait Teachers today!",
+    "Jump Lil Bro",
+    "I hate iPad kids",
+    "Athletics is fun!",
+    "Copyright DR",
+    "Lil Baby",
+    "I love rap + Basketball + Roblox + Coding!",
+];
+
+// --- Status and Battery Display ---
+function updateStatus() {
+    const time = new Date();
+    const hours = String(time.getHours()).padStart(2, '0');
+    const minutes = String(time.getMinutes()).padStart(2, '0');
+    const seconds = String(time.getSeconds()).padStart(2, '0');
+    const currentTime = `${hours}:${minutes}:${seconds}`;
+
+    navigator.getBattery().then(battery => {
+        const batteryLevel = Math.round(battery.level * 100);
+        const charging = battery.charging ? '🔌⚡ Charging' : '🔋 Not Charging';
+        statusElement.textContent = `${currentTime} | Battery: ${batteryLevel}% (${charging})`;
+    });
+}
+
+// Update the status every second
+setInterval(updateStatus, 1000);
+
+// --- Particle Creation and Management ---
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    const size = Math.random() * 4 + 2; // Particle size between 2px and 6px
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+
+    // Position the particle randomly within the viewport
+    particle.style.left = `${Math.random() * 100}vw`;
+    particle.style.top = `${Math.random() * 100}vh`;
+
+    particleContainer.appendChild(particle);
+    particles.push(particle);
+
+    // Remove the particle after some time
+    setTimeout(() => {
+        particle.remove();
+        particles.splice(particles.indexOf(particle), 1);
+    }, 5000); // Particles last for 5 seconds
+}
+
+// Create a particle every 200ms
+setInterval(createParticle, 200);
+
+// --- Particle Connections ---
+function connectParticles() {
+    const distance = 150; // Connect particles within this distance
+
+    // Clear all existing connection lines from the container
+    const existingLines = particleContainer.querySelectorAll('.line');
+    existingLines.forEach(line => line.remove());
+
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            const p1 = particles[i];
+            const p2 = particles[j];
+
+            // Get particle positions relative to the viewport
+            const p1Rect = p1.getBoundingClientRect();
+            const p2Rect = p2.getBoundingClientRect();
+
+            const dx = p2Rect.left - p1Rect.left;
+            const dy = p2Rect.top - p1Rect.top;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < distance) {
+                const connectionLine = document.createElement('div');
+                connectionLine.className = 'line';
+                const angle = Math.atan2(dy, dx);
+
+                connectionLine.style.width = `${dist}px`;
+                connectionLine.style.transform = `translate(${p1Rect.left}px, ${p1Rect.top}px) rotate(${angle}rad)`;
+                particleContainer.appendChild(connectionLine);
+            }
+        }
+    }
+}
+
+// Use requestAnimationFrame for smoother line animations
+function animateConnections() {
+    connectParticles();
+    requestAnimationFrame(animateConnections);
+}
+// Start the animation loop
+animateConnections();
+
+// --- Random Word Display ---
+function generateRandomWord() {
+    const wordDisplay = document.getElementById('randomWord');
+
+    // Start shrinking effect
+    wordDisplay.style.transform = 'scale(0)';
+    wordDisplay.style.opacity = '0';
+
+    // After the shrink animation, change the word
+    setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * words.length);
+        wordDisplay.innerText = words[randomIndex];
+
+        // Start growing effect
+        wordDisplay.style.transform = 'scale(1)';
+        wordDisplay.style.opacity = '1';
+    }, 500); // Wait for half a second for the shrink animation to complete
+}
+
+// Automatically change the word every 2 seconds
+setInterval(generateRandomWord, 2000);
 
 
 
