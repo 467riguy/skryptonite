@@ -13,9 +13,8 @@ document.body.setAttribute('background', savedTheme);
 function setBackground(background) {
     document.body.setAttribute('background', background);
     localStorage.setItem('background', background);
-
-    // Show alert when background is changed
-    alert("Background has been changed to: " + background);
+    
+   // alert("Background has been changed to: " + background);
 }
 const savedBackground = localStorage.getItem('theme') || 'whatss';
 document.body.setAttribute('theme', savedBackground);
@@ -37,7 +36,6 @@ class TypeDown {
         this.currentWordIndex = -1; // Start with no word selected
         this.tick();
     }
-
     tick() {
         // Select the next word only when the current one is fully displayed or deleted
         if (!this.isDeleting && this.txt === "") {
@@ -85,14 +83,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // new code
-const particles = [];
-const statusElement = document.getElementById('status');
-
-// Create the particle container in JavaScript
-const particleContainer = document.createElement('div');
-particleContainer.className = 'particle-container';
-document.body.appendChild(particleContainer);
-
 // Define the words for the random word function
 const words = [
     "Games, Apps, Music, Anime, UI",
@@ -105,92 +95,6 @@ const words = [
     "I love rap + Basketball + Roblox + Coding!",
 ];
 
-// --- Status and Battery Display ---
-function updateStatus() {
-    const time = new Date();
-    const hours = String(time.getHours()).padStart(2, '0');
-    const minutes = String(time.getMinutes()).padStart(2, '0');
-    const seconds = String(time.getSeconds()).padStart(2, '0');
-    const currentTime = `${hours}:${minutes}:${seconds}`;
-
-    navigator.getBattery().then(battery => {
-        const batteryLevel = Math.round(battery.level * 100);
-        const charging = battery.charging ? '🔌⚡ Charging' : '🔋 Not Charging';
-        statusElement.textContent = `${currentTime} | Battery: ${batteryLevel}% (${charging})`;
-    });
-}
-
-// Update the status every second
-setInterval(updateStatus, 1000);
-
-// --- Particle Creation and Management ---
-function createParticle() {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    const size = Math.random() * 4 + 2; // Particle size between 2px and 6px
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-
-    // Position the particle randomly within the viewport
-    particle.style.left = `${Math.random() * 100}vw`;
-    particle.style.top = `${Math.random() * 100}vh`;
-
-    particleContainer.appendChild(particle);
-    particles.push(particle);
-
-    // Remove the particle after some time
-    setTimeout(() => {
-        particle.remove();
-        particles.splice(particles.indexOf(particle), 1);
-    }, 5000); // Particles last for 5 seconds
-}
-
-// Create a particle every 200ms
-setInterval(createParticle, 200);
-
-// --- Particle Connections ---
-function connectParticles() {
-    const distance = 150; // Connect particles within this distance
-
-    // Clear all existing connection lines from the container
-    const existingLines = particleContainer.querySelectorAll('.line');
-    existingLines.forEach(line => line.remove());
-
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            const p1 = particles[i];
-            const p2 = particles[j];
-
-            // Get particle positions relative to the viewport
-            const p1Rect = p1.getBoundingClientRect();
-            const p2Rect = p2.getBoundingClientRect();
-
-            const dx = p2Rect.left - p1Rect.left;
-            const dy = p2Rect.top - p1Rect.top;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < distance) {
-                const connectionLine = document.createElement('div');
-                connectionLine.className = 'line';
-                const angle = Math.atan2(dy, dx);
-
-                connectionLine.style.width = `${dist}px`;
-                connectionLine.style.transform = `translate(${p1Rect.left}px, ${p1Rect.top}px) rotate(${angle}rad)`;
-                particleContainer.appendChild(connectionLine);
-            }
-        }
-    }
-}
-
-// Use requestAnimationFrame for smoother line animations
-function animateConnections() {
-    connectParticles();
-    requestAnimationFrame(animateConnections);
-}
-// Start the animation loop
-animateConnections();
-
-// --- Random Word Display ---
 function generateRandomWord() {
     const wordDisplay = document.getElementById('randomWord');
 
@@ -210,7 +114,80 @@ function generateRandomWord() {
 }
 
 // Automatically change the word every 2 seconds
-setInterval(generateRandomWord, 2000);
+setInterval(generateRandomWord, 2000); // Change word every 2 seconds
+// particle
+const particles = [];
+const connections = [];
+const statusElement = document.getElementById('status');
+
+function updateStatus() {
+    const time = new Date();
+    const hours = String(time.getHours()).padStart(2, '0');
+    const minutes = String(time.getMinutes()).padStart(2, '0');
+    const seconds = String(time.getSeconds()).padStart(2, '0');
+    const currentTime = `${hours}:${minutes}:${seconds}`;
+
+    navigator.getBattery().then(battery => {
+        const batteryLevel = Math.round(battery.level * 100);
+        const charging = battery.charging ? '🔌⚡ Charging' : '🔋 Not Charging';
+        statusElement.textContent = `${currentTime} | Battery: ${batteryLevel}% (${charging})`;
+    });
+}
+
+function createParticle() {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    const size = Math.random() * 4 + 2; // Particle size between 2px and 6px
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.left = `${Math.random() * window.innerWidth}px`;
+    particle.style.top = `${Math.random() * window.innerHeight}px`;
+    document.body.appendChild(particle);
+    particles.push(particle);
+
+    // Remove the particle after some time
+    setTimeout(() => {
+        particle.remove();
+        particles.splice(particles.indexOf(particle), 1);
+    }, 5000); // Particles last for 5 seconds
+}
+
+function connectParticles() {
+    const distance = 150; // Connect particles within this distance
+    const connectionLine = document.createElement('div');
+
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[j].offsetLeft - particles[i].offsetLeft;
+            const dy = particles[j].offsetTop - particles[i].offsetTop;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < distance) {
+                connectionLine.className = 'line';
+                const lineX = (particles[i].offsetLeft + particles[j].offsetLeft) / 2;
+                const lineY = (particles[i].offsetTop + particles[j].offsetTop) / 2;
+                const angle = Math.atan2(dy, dx);
+                const length = dist;
+
+                connectionLine.style.width = `${length}px`;
+                connectionLine.style.transform = `translate(${lineX}px, ${lineY}px) rotate(${angle}rad)`;
+                document.body.appendChild(connectionLine);
+                connections.push(connectionLine);
+            }
+        }
+    }
+
+    // Remove connection lines after a short duration
+    setTimeout(() => {
+        connections.forEach(line => line.remove());
+        connections.length = 0; // Clear connections
+    }, 1000); // Lines last for 1 second
+}
+
+// Update the status every second
+setInterval(updateStatus, 1000); // Update time and battery every second
+setInterval(createParticle, 200); // Create a particle every 200ms
+setInterval(connectParticles, 800); // Connect particles every 800ms
 
 
 
