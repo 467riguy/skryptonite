@@ -117,80 +117,121 @@ function generateRandomWord() {
 setInterval(generateRandomWord, 2000); // Change word every 2 seconds
 
 
-// particle
-const particles = [];
-const connections = [];
-const statusElement = document.getElementById('status');
+document.addEventListener('DOMContentLoaded', function() {
+    const particles = [];
+    const connections = [];
+    const statusElement = document.getElementById('status-display');
 
-function updateStatus() {
-    const time = new Date();
-    const hours = String(time.getHours()).padStart(2, '0');
-    const minutes = String(time.getMinutes()).padStart(2, '0');
-    const seconds = String(time.getSeconds()).padStart(2, '0');
-    const currentTime = `${hours}:${minutes}:${seconds}`;
-
-    navigator.getBattery().then(battery => {
-        const batteryLevel = Math.round(battery.level * 100);
-        const charging = battery.charging ? '🔌⚡ Charging' : '🔋 Not Charging';
-        statusElement.textContent = `${currentTime} | Battery: ${batteryLevel}% (${charging})`;
-    });
-}
-
-function createParticle() {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    const size = Math.random() * 4 + 2; // Particle size between 2px and 6px
-    particle.style.width = `${size}px`;
-    particle.style.height = `${size}px`;
-    particle.style.left = `${Math.random() * window.innerWidth}px`;
-    particle.style.top = `${Math.random() * window.innerHeight}px`;
-    document.body.appendChild(particle);
-    particles.push(particle);
-
-    // Remove the particle after some time
-    setTimeout(() => {
-        particle.remove();
-        particles.splice(particles.indexOf(particle), 1);
-    }, 5000); // Particles last for 5 seconds
-}
-
-function connectParticles() {
-    const distance = 150; // Connect particles within this distance
-    const connectionLine = document.createElement('div');
-
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[j].offsetLeft - particles[i].offsetLeft;
-            const dy = particles[j].offsetTop - particles[i].offsetTop;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < distance) {
-                connectionLine.className = 'line';
-                const lineX = (particles[i].offsetLeft + particles[j].offsetLeft) / 2;
-                const lineY = (particles[i].offsetTop + particles[j].offsetTop) / 2;
-                const angle = Math.atan2(dy, dx);
-                const length = dist;
-
-                connectionLine.style.width = `${length}px`;
-                connectionLine.style.transform = `translate(${lineX}px, ${lineY}px) rotate(${angle}rad)`;
-                document.body.appendChild(connectionLine);
-                connections.push(connectionLine);
-            }
-        }
+    // Check for the status element immediately
+    if (!statusElement) {
+        console.error('Error: Could not find element with id "status-display".');
+        return;
     }
 
-    // Remove connection lines after a short duration
-    setTimeout(() => {
-        connections.forEach(line => line.remove());
-        connections.length = 0; // Clear connections
-    }, 1000); // Lines last for 1 second
-}
+    let batteryInfo = 'Checking battery...';
 
-// Update the status every second
-setInterval(updateStatus, 1000); // Update time and battery every second
-setInterval(createParticle, 200); // Create a particle every 200ms
-setInterval(connectParticles, 800); // Connect particles every 800ms
+    // Function to format the current time
+    function updateClockTime() {
+        const now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12; // The hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        return `${hours}:${minutes}:${seconds} ${ampm}`;
+    }
 
+    // Function to handle and update the battery status
+    function updateBatteryStatus(battery) {
+        const batteryLevel = Math.round(battery.level * 100);
+        const charging = battery.charging ? '🔌⚡ Charging' : '🔋 Not Charging';
+        batteryInfo = `Battery: ${batteryLevel}% (${charging})`;
+
+        battery.addEventListener('levelchange', updateStatusDisplay);
+        battery.addEventListener('chargingchange', updateStatusDisplay);
+    }
+
+    // Single function to update the display text
+    function updateStatusDisplay() {
+        const timeString = updateClockTime();
+        statusElement.textContent = `${timeString} | ${batteryInfo}`;
+    }
+
+    // --- Particle functions (integrated) ---
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        const size = Math.random() * 4 + 2; // Particle size between 2px and 6px
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${Math.random() * window.innerWidth}px`;
+        particle.style.top = `${Math.random() * window.innerHeight}px`;
+        document.body.appendChild(particle);
+        particles.push(particle);
+
+        // Remove the particle after some time
+        setTimeout(() => {
+            particle.remove();
+            particles.splice(particles.indexOf(particle), 1);
+        }, 5000); // Particles last for 5 seconds
+    }
+
+    function connectParticles() {
+        const distance = 150; // Connect particles within this distance
+        const connectionLine = document.createElement('div');
+
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[j].offsetLeft - particles[i].offsetLeft;
+                const dy = particles[j].offsetTop - particles[i].offsetTop;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < distance) {
+                    connectionLine.className = 'line';
+                    const lineX = (particles[i].offsetLeft + particles[j].offsetLeft) / 2;
+                    const lineY = (particles[i].offsetTop + particles[j].offsetTop) / 2;
+                    const angle = Math.atan2(dy, dx);
+                    const length = dist;
+
+                    connectionLine.style.width = `${length}px`;
+                    connectionLine.style.transform = `translate(${lineX}px, ${lineY}px) rotate(${angle}rad)`;
+                    document.body.appendChild(connectionLine);
+                    connections.push(connectionLine);
+                }
+            }
+        }
+
+        // Remove connection lines after a short duration
+        setTimeout(() => {
+            connections.forEach(line => line.remove());
+            connections.length = 0; // Clear connections
+        }, 1000); // Lines last for 1 second
+    }
+    // --- Main Execution (scoped) ---
+
+    // Handle battery info
+    if ('getBattery' in navigator) {
+        navigator.getBattery().then(battery => {
+            updateBatteryStatus(battery);
+            updateStatusDisplay();
+        }).catch(error => {
+            console.error('Could not get battery information:', error);
+            batteryInfo = 'Battery info unavailable';
+            updateStatusDisplay();
+        });
+    } else {
+        console.warn('Battery Status API is not supported in this browser.');
+        batteryInfo = 'Battery info unavailable';
+        updateStatusDisplay();
+    }
+
+    // Set up intervals for all animations and status updates
+    setInterval(updateStatusDisplay, 1000);
+    setInterval(createParticle, 200);
+    setInterval(connectParticles, 800);
+});
 
 
       // Music

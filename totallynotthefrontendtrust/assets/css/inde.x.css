@@ -507,7 +507,7 @@ h1 {
     opacity: 1;
     transform: translateY(0);
 }
-#live-clock {
+/*#live-clock {
     border: 1px solid ghostwhite;
     font-size: 1.8em;
     font-weight: 600;
@@ -520,7 +520,7 @@ h1 {
     display: inline-block;
     background: none;
 }
-
+*/
 .live-clock-button {
     color: blue;
     animation: glowingAnimation 4s ease-in-out infinite;
