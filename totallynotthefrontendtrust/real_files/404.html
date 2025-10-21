@@ -6,123 +6,34 @@
   <link rel="icon" href="/assets/media/favicon/daddy.png.png" type="image/x-icon" />
   <title>Math Bros. Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/404.css">
+  <link rel="stylesheet" href="/assets/css/inde.x.css">
+  <link rel="stylesheet" href="/assets/css/themes.css" />
+   <link rel="stylesheet" href="/assets/css/nav-bar.css">
 </head>
-<!--<body onload="showLoader()">-->
-    <!-- Loader -->
-    <!--<div id="loader">
-        <h1><span class="highlight">SKELLY</span>💀</h1>
-        <p><span class="highlight2">Hanging Extension, please wait...</span></p>
-        <div class="loader"></div>
-    </div>-->
-<!-- Content Section -->
-<div class="content">
-  <div class="container">
-    <h1><span class="highlight">404 Error</span></h1>
-    <h2><span class="highlight">File not found</span></h2>
-    <p><span class="highlight2">This error encountered due to you opening a file that has not been found.</span></p>
-    <div class="proxy-buttons-container" id="proxy-buttons-container">
-     <a href="/home-page" class="proxy-button">Home</a>
-    </div>
-    <div class="time" id="time">Loading time wait...</div>
-      <div class="battery" id="battery">
-        <div class="battery-icon">
-          <div class="battery-fill" id="battery-fill"></div>
-        </div><span id="battery-percentage">Loading battery wait...</span>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  </div>
-</div>
-  </div>
-</div>
-</div>
-</div>
- </div>
-</div>
-</div>
-</div>
-    </div>
-  </div>
-  <script src="/assets/js/features.js"></script>
-    <script>
-function showLoader() {
-  const loader = document.getElementById("loader");
-  
-  // Start fading it out
-  loader.style.opacity = "0";
-
-  // After the transition ends (0.3s later), hide it completely
-  setTimeout(() => {
-    loader.style.display = "none";
-  }, 1000); // 300ms matches your CSS transition
-}
-
-// Update the time every 10ms
-function updateTime() {
-  const timeElement = document.getElementById("time");
-  const now = new Date();
-
-  let hours = now.getHours();
-  const minutes = String(now.getMinutes()).padStart(2, "0");
-  const seconds = String(now.getSeconds()).padStart(2, "0");
-  const ampm = hours >= 12 ? "PM" : "AM";
-
-  // Convert to 12-hour format
-  hours = hours % 12;
-  hours = hours ? hours : 12; // 0 becomes 12
-
-  timeElement.textContent = `${hours}:${minutes}:${seconds} ${ampm}`;
-}
-
-setInterval(updateTime, 10);
-
-// Update battery status
-async function updateBattery() { 
-  const battery = await navigator.getBattery();
-  const level = Math.floor(battery.level * 100);
-  const fill = document.getElementById("battery-fill");
-
-  document.getElementById("battery-percentage").textContent = `${level}%`;
-  fill.style.width = `${level}%`;
-  
-
-  // Set color based on charging state and level
-  if (battery.charging) {
-    fill.style.backgroundColor = "green"; // Charging = green
-  } else if (level > 50) {
-    fill.style.backgroundColor = "white"; // >50% = white
-  } else if (level >= 20) {
-    fill.style.backgroundColor = "yellow"; // 20–50% = yellow
-  } else {
-    fill.style.backgroundColor = "red"; // <20% = red
-  }
-}
-navigator.getBattery().then(battery => {
-  function updateAll() {
-    updateBattery(); // your custom update logic
-  }
-
-  battery.addEventListener("levelchange", updateAll);
-  battery.addEventListener("chargingchange", updateAll);
-  updateAll(); // initial update
-});
-updateBattery();
-// Toggle sidebar visibility and blur effect
-    function toggleSidebar() {
-      const sidebar = document.getElementById("sidebar");
-      const hamburger = document.querySelector(".hamburger");
-      const content = document.querySelector(".content"); // Select the content section
-
-      sidebar.classList.toggle("closed");
-      hamburger.classList.toggle("open");
-
-      // Toggle blur on content when sidebar is open
-      content.classList.toggle("blur", !sidebar.classList.contains("closed"));
-    }
-          </script>
+  <body>
+    <div id="particles-js"></div>
+    <div class="container animated-content">
+        <div class="container-inner">
+            <!-- Start of everything -->
+          <span class="glowing-text">Destiny Rise 6.0&trade;</span>
+       <div class="status" id="status-display">Loading status...</div>
+          <h2>404: Page not found</h2>
+            <div class="proxy-buttons-container" id="proxy-buttons-container">
+             <p class="proxy-button" onclick="go('https://youtube.com')">Youtube</p>
+               <p class="proxy-button" onclick="go('https://tiktok.com')">Tiktok</p>
+              <p class="proxy-button" onclick="go('https://instagram.com')">Instagram</p>
+              <p class="proxy-button" onclick="go('https://discord.com')">Discord</p>
+              <p class="proxy-button" onclick="go('https://github.com/razzlerazing2/Destiny-Rise-6.0')">Our github</p>
+              <p class="proxy-button" onclick="_()">About:blank</p>
+              <p class="proxy-button" onclick="$()">Home</p>
+          </div>
+    <script src="/assets/js/div.js"></script>
+    <script src="/assets/js/nav.js?vvv=001"></script>
+    <script src="/assets/js/backend.js?v=03"></script>
+    <script src="./assets/ultra/bundle.js?vlock"></script>
+    <script src="./assets/ultra/config.js?va"></script>
+    <script src="/assets/js/adds.js?v=003"></script>
+    <script src="/assets/js/features.js?v=010"></script>
     </body>
 
 </html>

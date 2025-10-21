@@ -529,35 +529,16 @@ document.addEventListener('DOMContentLoaded', function() {
           audio.play();
       });
     */
-/*
-   const preloader = document.createElement("div");
-preloader.id = "preloader";
-
-const spinner = document.createElement("div");
-spinner.className = "spinner";
-// Add text above the spinner
-const loadingText = document.createElement("h1");
-loadingText.textContent = "Let us set up everything for your experience...";
-// Add emoji inside an <h1> tag
-const emoji = document.createElement("h1");
- emoji.textContent = "";
-//emoji.textContent = "🔥";
-// Nest elements
-spinner.appendChild(emoji);
-preloader.appendChild(loadingText);
-preloader.appendChild(spinner);*/
 const preloader = document.createElement("div");
 preloader.id = "preloader";
-
-// Create the loading text
 const loadingText = document.createElement("h2");
 loadingText.textContent = "Let us set up everything for your experience...";
-
-// Create the loader container
+const spinner = document.createElement("div");
+spinner.className = "spinner";
 const loader = document.createElement("div");
 loader.className = "loader";
-
-// Create the three bouncing dots
+const emoji = document.createElement("h2");
+ emoji.textContent = "💀";
 const dot1 = document.createElement("div");
 dot1.className = "dot";
 
@@ -566,21 +547,20 @@ dot2.className = "dot";
 
 const dot3 = document.createElement("div");
 dot3.className = "dot";
-
-// Append the dots to the loader container
-/*loader.appendChild(dot1);
+/*
+loader.appendChild(dot1);
 loader.appendChild(dot2);
-loader.appendChild(dot3);*/
-
-// Append the loading text and loader to the preloader
+loader.appendChild(dot3);
+*/
 preloader.appendChild(loadingText);
+preloader.appendChild(spinner);
 preloader.appendChild(loader);
+spinner.appendChild(emoji);
+document.body.appendChild(preloader);
 
-// You can now append the preloader to the body
-document.body.appendChild(preloader);
-// Append to body
-document.body.appendChild(preloader);
-function aboutblank() {
+
+
+function _() {
             var win = window.open('about:blank');
             var url = 'index.html';
             var iframe = win.document.createElement('iframe');
@@ -590,6 +570,9 @@ function aboutblank() {
 
             window.location.href = 'https://portal.friscoisd.org';
         }
+function $() {
+    window.location.href = "/home"
+}
 // Favicon
 function setFavicon(url) {
     const link = document.createElement('link');

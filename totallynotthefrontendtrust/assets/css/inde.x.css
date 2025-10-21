@@ -57,6 +57,31 @@ body {
         text-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
     }
 }
+@keyframes _cfg {
+    0% {
+        color: blue;
+        text-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    }
+    50% {
+        color: red;
+        box-shadow: 0 0 10px red;
+    }
+
+    67% {
+        color: black;
+        box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+    }
+
+    83% {
+        color: green;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    100% {
+        color: blue;
+        box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+    }
+}
 .particle {
     position: fixed;
     width: 100%;
@@ -225,6 +250,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 25px; /* Space between elements within the container */
+    animation: _cfg 4s ease-in-out infinite;
 }
 .container-max h1 {
     font-size: 3.5em;
@@ -255,6 +281,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 25px; /* Space between elements within the container */
+    animation: _cfg 4s ease-in-out infinite;
 }
 .parent-container {
     display: flex;
@@ -272,6 +299,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 25px; /* Space between elements within the container */
+    animation: _cfg 4s ease-in-out infinite;
 }
 .container-outer h1 {
     font-size: 3.5em;
