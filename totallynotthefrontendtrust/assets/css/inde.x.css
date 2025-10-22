@@ -286,11 +286,6 @@ h2 {
 .container-inner:hover {
     animation: _cfg 4s ease-in-out infinite;
 }
-.parent-container {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically if necessary */
-}
 .container-outer {
     background-color: transparent; /* Semi-transparent dark background for content block */
     border-radius: 15px;
