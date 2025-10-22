@@ -1,4 +1,4 @@
-
+alert("Particles were removed here because they were causing lag.");
 window.addEventListener("load", () => {
   navigator.serviceWorker.register("../sw.js?v=07-03-big25", { scope: "/a/" });
   const form = document.getElementById("4m");

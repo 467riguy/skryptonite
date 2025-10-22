@@ -113,6 +113,61 @@ function generateRandomWord() {
 setInterval(generateRandomWord, 2500);
 
 document.addEventListener('DOMContentLoaded', function() {
+    const statusElement = document.getElementById('status-display');
+
+    // Check for the status element immediately
+    if (!statusElement) {
+        console.error('Error: Could not find element with id "status-display".');
+        return;
+    }
+
+    let batteryInfo = 'Checking battery...';
+
+    // Function to format the current time
+    function updateClockTime() {
+        const now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12 || 12; // The hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        return `${hours}:${minutes}:${seconds} ${ampm}`;
+    }
+
+    // Function to handle and update the battery status
+    function updateBatteryStatus(battery) {
+        const batteryLevel = Math.round(battery.level * 100);
+        const charging = battery.charging ? '🔌⚡ Charging' : '🔋 Not Charging';
+        batteryInfo = `Battery: ${batteryLevel}% (${charging})`;
+
+        battery.addEventListener('levelchange', updateStatusDisplay);
+        battery.addEventListener('chargingchange', updateStatusDisplay);
+    }
+
+    // Single function to update the display text
+    function updateStatusDisplay() {
+        const timeString = updateClockTime();
+        statusElement.textContent = `${timeString} | ${batteryInfo}`;
+    }
+    // --- Main Execution (scoped) ---
+
+    // Handle battery info
+    if ('getBattery' in navigator) {
+        navigator.getBattery().then(battery => {
+            updateBatteryStatus(battery);
+            updateStatusDisplay();
+        }).catch(error => {
+            console.error('Could not get battery information:', error);
+            batteryInfo = 'Battery info unavailable';
+            updateStatusDisplay();
+        });
+    } else {
+        console.warn('Battery Status API is not supported in this browser.');
+        batteryInfo = 'Battery info unavailable';
+        updateStatusDisplay();
+    }
     // --- Particle functions (integrated) ---
     const particles = [];
     const connections = [];
@@ -169,61 +224,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(updateStatusDisplay, 1000);
     setInterval(createParticle, 200);
     setInterval(connectParticles, 800);
-    const statusElement = document.getElementById('status-display');
-
-    // Check for the status element immediately
-    if (!statusElement) {
-        console.error('Error: Could not find element with id "status-display".');
-        return;
-    }
-
-    let batteryInfo = 'Checking battery...';
-
-    // Function to format the current time
-    function updateClockTime() {
-        const now = new Date();
-        let hours = now.getHours();
-        let minutes = now.getMinutes();
-        let seconds = now.getSeconds();
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12 || 12; // The hour '0' should be '12'
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        return `${hours}:${minutes}:${seconds} ${ampm}`;
-    }
-
-    // Function to handle and update the battery status
-    function updateBatteryStatus(battery) {
-        const batteryLevel = Math.round(battery.level * 100);
-        const charging = battery.charging ? '🔌⚡ Charging' : '🔋 Not Charging';
-        batteryInfo = `Battery: ${batteryLevel}% (${charging})`;
-
-        battery.addEventListener('levelchange', updateStatusDisplay);
-        battery.addEventListener('chargingchange', updateStatusDisplay);
-    }
-
-    // Single function to update the display text
-    function updateStatusDisplay() {
-        const timeString = updateClockTime();
-        statusElement.textContent = `${timeString} | ${batteryInfo}`;
-    }
-    // --- Main Execution (scoped) ---
-
-    // Handle battery info
-    if ('getBattery' in navigator) {
-        navigator.getBattery().then(battery => {
-            updateBatteryStatus(battery);
-            updateStatusDisplay();
-        }).catch(error => {
-            console.error('Could not get battery information:', error);
-            batteryInfo = 'Battery info unavailable';
-            updateStatusDisplay();
-        });
-    } else {
-        console.warn('Battery Status API is not supported in this browser.');
-        batteryInfo = 'Battery info unavailable';
-        updateStatusDisplay();
-    }
 });
 
 
