@@ -250,6 +250,9 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 25px; /* Space between elements within the container */
+    align-items: center;
+}
+.container-max:hover {
     animation: _cfg 4s ease-in-out infinite;
 }
 .container-max h1 {
@@ -260,9 +263,6 @@ h2 {
     animation: glowingAnimation 4s ease-in-out infinite;
     text-shadow: 0 2px 5px var(--shadow-strong);
 }
-#warning-error {
-    color: red;
-}
 .container-max h2 {
     font-size: 1.5em;
     font-weight: bold;
@@ -272,7 +272,7 @@ h2 {
     opacity: 0.9;
 }
 .container-inner {
-    background-color: transparent; /* Semi-transparent dark background for content block */
+    background-color: transparent;
     border-radius: 15px;
     padding: 40px;
     box-shadow: 0 10px 30px var(--shadow-strong);
@@ -280,7 +280,10 @@ h2 {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Space between elements within the container */
+    gap: 25px;
+    align-items: center;
+}
+.container-inner:hover {
     animation: _cfg 4s ease-in-out infinite;
 }
 .parent-container {
@@ -299,6 +302,9 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 25px; /* Space between elements within the container */
+    align-items: center;
+}
+.container-outer:hover {
     animation: _cfg 4s ease-in-out infinite;
 }
 .container-outer h1 {
@@ -963,12 +969,13 @@ h2 {
 }
 
 .settings-card p {
-    font-size: 0.95em;
-    line-height: 1.6;
     color: blue;
     animation: glowingAnimation 4s ease-in-out infinite;
 }
-
+#warn {
+    font-size: 0.95em;
+    color: red;
+}
 /* --- Input Fields (Key Forms) --- */
 .key-form,
 #background-input,

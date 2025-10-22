@@ -31,10 +31,14 @@ function toggleParticles() {
     disableParticles();
     particlesEnabled = false;
     localStorage.setItem("particlesEnabled", "false");
+    alert("Particles are now disabled. Reloading the page to see the changes.");
+    window.location.reload();
   } else {
     loadParticles();
     particlesEnabled = true;
     localStorage.setItem("particlesEnabled", "true");
+    alert("Particles are now enabled. Reloading the page to see the changes.");
+    window.location.reload();
   }
 }
 
@@ -114,9 +118,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (selectedValue === "uv") {
       localStorage.setItem("uv", "true");
       localStorage.setItem("dy", "false");
+      alert("Ultraviolet is now enabled. Reloading the page to see the changes.");
+        window.location.reload();
     } else if (selectedValue === "dy") {
       localStorage.setItem("uv", "false");
       localStorage.setItem("dy", "true");
+      alert("Dynamic is now enabled. Reloading the page to see the changes.");
+        window.location.reload();
     }
   }
 
@@ -190,6 +198,8 @@ document.addEventListener("DOMContentLoaded", () => {
 function saveEventKey() {
   const eventKeyInput = document.getElementById("eventKeyInput");
   if (!eventKeyInput) return;
+  alert("Panic key saved. Reloading the page to see the changes.");
+  window.location.reload();
   
   eventKey = eventKeyInput.value.split(",");
   eventKeyRaw = eventKeyInput.value;
@@ -203,6 +213,7 @@ function resetButton() {
   localStorage.removeItem("eventKey");
   localStorage.removeItem("eventKeyRaw");
   localStorage.removeItem("pLink");
+  alert("Panic key reset. Reloading the page to see the changes.");
   window.location.reload();
 }
 
@@ -305,6 +316,8 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("backgroundImage", imageURL);
         document.body.style.backgroundImage = `url('${imageURL}')`;
         backgroundInput.value = "";
+        alert("background saved. Reloading the page to see the changes.");
+        window.location.reload();
       } else {
         console.log("No image URL entered.");
       }
@@ -313,6 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
     resetButton.addEventListener("click", () => {
       localStorage.removeItem("backgroundImage");
       document.body.style.backgroundImage = "url('default-background.jpg')";
+      alert("Background reset. Reloading the page to see the changes.");
       window.location.reload();
     });
   }
@@ -369,13 +383,13 @@ function AB() {
 }
 
 function toggleAB() {
-  ab = localStorage.getItem("ab");
-  if (!ab) {
-    localStorage.setItem("ab", "true");
-  } else if (ab === "true") {
-    localStorage.setItem("ab", "false");
+  AB = localStorage.getItem("AB");
+  if (!AB) {
+    localStorage.setItem("AB", "true");
+  } else if (AB === "true") {
+    localStorage.setItem("AB", "false");
   } else {
-    localStorage.setItem("ab", "true");
+    localStorage.setItem("AB", "true");
   }
 }
 
@@ -407,7 +421,8 @@ function SaveEngine() {
     localStorage.setItem("engine", customEngine.value.trim());
     localStorage.setItem("enginename", "Custom");
   } else {
-    alert("Search engine saved..");
+    alert("Search engine saved.");
+    window.location.reload();
   }
 }
 
@@ -501,7 +516,8 @@ function importSaveData() {
             localStorage.setItem(key, value);
           });
         }
-        alert('You imported your save data, it is good if this link gets blocked, or another link is created. Reload the page to see the changes.')
+        alert('You imported your save data, it is good if this link gets blocked, or another link is created. Reloading the page to see the changes.')
+        window.location.reload();
       } catch (error) {
         console.error('Error parsing JSON file:', error);
       }

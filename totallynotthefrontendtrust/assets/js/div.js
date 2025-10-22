@@ -1,5 +1,4 @@
-
-/* hop off, skids */
+// hop off skids
 window.onload = function() {
     console.log("Window loaded, attempting to load particles.js");
     particlesJS.load('particles-js', '/assets/json/particles.json', function() {
@@ -562,7 +561,6 @@ function _() {
             iframe.style = "position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;";
             iframe.src = url;
             win.document.body.appendChild(iframe);
-
             window.location.href = 'https://portal.friscoisd.org';
         }
 function $() {
