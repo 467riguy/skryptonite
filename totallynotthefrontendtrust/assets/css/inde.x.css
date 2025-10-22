@@ -57,6 +57,32 @@ body {
         text-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
     }
 }
+@keyframes ga {
+    0% {
+        background-color: blue;
+        box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+    }
+
+    50% {
+        background-color: red;
+        box-shadow: none;
+    }
+
+    67% {
+        background-color: black;
+        box-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+    }
+
+    83% {
+        background-color: green;
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    }
+
+    100% {
+        background-color: blue;
+        box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+    }
+}
 @keyframes _cfg {
     0% {
         color: blue;
@@ -677,7 +703,8 @@ h2 {
 }
 
 .player-buttons button {
-    background: var(--primary-color);
+    background-color: blue;
+    animation: ga 4s ease-in-out infinite;
     border: none;
     padding: 12px 20px;
     border-radius: 50%; /* Circular buttons */
@@ -686,8 +713,6 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: blue;
-    animation: glowingAnimation 4s ease-in-out infinite;
     font-size: 1.2em;
     cursor: pointer;
     box-shadow: 0 3px 10px var(--shadow-strong);
@@ -754,7 +779,8 @@ h2 {
 }
 
 .music-item.active {
-    background-color: var(--primary-color); /* Highlight active song */
+    background-color: blue;
+    animation: ga 4s ease-in-out infinite; /* Highlight active song */
     box-shadow: 0 4px 15px rgba(123, 104, 238, 0.5);
     border-color: var(--primary-light);
     transform: scale(1.02);
@@ -762,8 +788,7 @@ h2 {
 
 .music-item.active .music-info span,
 .music-item.active .music-info i {
-    color: blue;
-    animation: glowingAnimation 4s ease-in-out infinite;
+    color: black;
 }
 
 .music-info {
