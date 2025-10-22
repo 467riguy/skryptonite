@@ -240,14 +240,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (audioPlayer && playPauseButton && prevButton && nextButton && currentSongTitle && musicListDiv && musicSearchInput) {
             const allSongs = [
-                { name: "Young, Black & Rich - Melly Mike", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/ybr.mp3" },
-                { name: "From My Window - Juicе WRLD", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/frommywindowCUH.mp3" }, // good
+                  { name: "Young, Black & Rich - Melly Mike", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/ybr.mp3" },
+                { name: "From My Window - Juicе WRLD", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/frommywindowCUH.mp3" },
+                { name: "Overseas - Ken Carson", url: "/assets/media/partial_song/2.m4a" },
+                { name: "Dum, Dumb, & Dumber - Lil baby", url: "/assets/media/partial_song/3.m4a" },
+                { name: "Money Trees - Kendrick Lamar", url: "/assets/media/partial_song/4.m4a" },
+                { name: "HUMBLE - Kendrick Lamar", url: "/assets/media/partial_song/5.m4a" }, // good
                 { name: "Hope - XXXTentacion", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/hope.mp3" },
                 { name: "Pray for me - Kendrick Lamar & The Weeknd", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/pfm.mp3" },
                 { name: "Prove it - 21 Savage", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/proveit.mp3" }, // good
                 { name: "Ransom - Lil Tecca", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/ransomCUH.mp3" }, // good
                 { name: "Lifestylе - Rich Gang", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/life.mp3" }, // good
                 { name: "Big Dawgs - Hanumankind", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/bigdawgs.mp3" }, // good
+                { name: "VENGEANCE - Glorb", url: "/assets/media/partial_song/1.m4a" },
                 { name: "STD - Glorb", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/std.mp3" }, // good
                 { name: "The Bottom - Glorb", url: "https://github.com/razzlerazing4/music-file-storage/raw/refs/heads/main/bottom.mp3" }, // good
                 { name: "The Bottom 2 - Glorb", url: "https://github.com/razzlerazing2/Destiny-Rise-6.0/raw/d86f2ebaa83bc5d42ff428708d67fcb6a9fa5fc7/totallynotthefrontendtrust/assets/media/_music/bottom2.mp3" }, // good
