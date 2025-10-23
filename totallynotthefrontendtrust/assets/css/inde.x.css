@@ -86,26 +86,26 @@ body {
 @keyframes _cfg {
     0% {
         color: blue;
-        box-shadow: 0 0 30px rgba(0, 0, 255, 0.5);
+        box-shadow: 0 0 50px rgba(0, 0, 255, 0.5);
     }
     50% {
         color: red;
-        box-shadow: 0 0 30px red;
+        box-shadow: 0 0 50px red;
     }
 
     67% {
         color: black;
-        box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+        box-shadow: 0 0 50px rgba(255, 255, 0, 0.5);
     }
 
     83% {
         color: green;
-        box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+        box-shadow: 0 0 50px rgba(0, 255, 0, 0.5);
     }
 
     100% {
         color: blue;
-        box-shadow: 0 0 30px rgba(0, 0, 255, 0.5);
+        box-shadow: 0 0 50px rgba(0, 0, 255, 0.5);
     }
 }
 .particle {
