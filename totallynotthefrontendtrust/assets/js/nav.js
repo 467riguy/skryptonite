@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       left: 0;
       width: 100%;
       height: 100%;
+      display: none; /* Best */
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 999;
       transition: all 0.3s ease;
