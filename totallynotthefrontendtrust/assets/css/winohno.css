@@ -293,9 +293,9 @@ transition: all 1s ease;
 }*/
 .highlight2 {
   background: linear-gradient(0deg, #FF0000, #0000FF);
-  color: white;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 /* Highlight styles */
 .highlight {
@@ -312,6 +312,7 @@ transition: all 1s ease;
   color: white;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .dropdown-container {
