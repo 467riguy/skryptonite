@@ -307,7 +307,7 @@ if (navigator.userAgent.includes("Chrome")) {
 }
 // Home
 function home_page() {
-  window.location.href = "/home";
+  window.location.href = "/URLexeNcode_Iframe4.js";
 }
 // Back
 function goBack() {

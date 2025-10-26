@@ -1,16 +1,16 @@
 let appInd;
-const g = window.location.pathname === "/ts_1.js";
-const a = window.location.pathname === "/apps";
+const g = window.location.pathname === "/URLexeNcode_Iframe3.js";
+const a = window.location.pathname === "/URLexeNcode_Iframe5.js";
 const c = window.location.pathname === "/gawd.html";
-const anime = window.location.pathname === "/animes";
+const anime = window.location.pathname === "/URLexeNcode_Iframe2.js";
 
 let t;
 
 try {
-    t = window.top.location.pathname === "/t";
+    t = window.top.location.pathname === "/URLexeNcode_Iframe7.js";
 } catch {
     try {
-        t = window.parent.location.pathname === "/t";
+        t = window.parent.location.pathname === "/URLexeNcode_Iframe7.js";
     } catch {
         t = false;
     }

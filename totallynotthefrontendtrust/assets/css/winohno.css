@@ -61,6 +61,42 @@ body {
     font-size: 20px;
     margin-top: 10px;
 }
+
+/*
+@keyframes glowingAnimation {
+  0% {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+  }
+
+  50% {
+    color: red;
+    text-shadow: none;
+  }
+
+  67% {
+    color: black;
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+  }
+
+  83% {
+    color: green;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  }
+
+  100% {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+  }
+}*/
+@keyframes glowingAnimation {
+    0% {
+        color: var(--primary-color);
+    }
+    100% {
+        color: var(--primary-color);
+    }
+}
 @keyframes ga {
     0% {
         background: var(--primary-light);
@@ -78,32 +114,6 @@ background: var(--primary-color);
     }
 }
 /*
-@keyframes glowingAnimation {
-    0% {
-        color: blue;
-        text-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
-    }
-
-    50% {
-        color: red;
-        text-shadow: none;
-    }
-
-    67% {
-        color: black;
-        text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
-    }
-
-    83% {
-        color: green;
-        text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
-    }
-
-    100% {
-        color: blue;
-        text-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
-    }
-}
 @keyframes ga {
     0% {
         background-color: blue;
@@ -129,7 +139,7 @@ background: var(--primary-color);
         background-color: blue;
         box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
     }
-}
+}    
 @keyframes _cfg {
     0% {
         color: blue;
@@ -154,8 +164,7 @@ background: var(--primary-color);
         color: blue;
         box-shadow: 0 0 50px rgba(0, 0, 255, 0.5);
     }
-}
-*/
+}*/
 .particle {
     position: fixed;
     width: 100%;

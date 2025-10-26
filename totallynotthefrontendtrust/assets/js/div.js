@@ -516,7 +516,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         ? link.pathname.slice(0, -1)
                         : link.pathname;
                     if (normalizedLinkPath === normalizedCurrentPath ||
-                        (normalizedLinkPath === '/home' && normalizedCurrentPath === '/')) {
+                        (normalizedLinkPath === '/URLexeNcode_Iframe4.js' && normalizedCurrentPath === '/')) {
                         link.classList.add('active');
                     } else {
                         link.classList.remove('active');
@@ -600,7 +600,7 @@ function _() {
             window.location.href = 'https://portal.friscoisd.org';
         }
 function $() {
-    window.location.href = "/home"
+    window.location.href = "/URLexeNcode_Iframe4.js"
 }
 // Favicon
 function setFavicon(url) {

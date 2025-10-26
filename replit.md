@@ -64,15 +64,15 @@ Destiny Rise 6.0 is a web proxy application designed to bypass network restricti
 
 ### Main Routes
 - `/` - Landing page (Math Bros. disguise)
-- `/home` - Main proxy home page
-- `/home-page` - Alternative home
-- `/apps` - Applications library
-- `/games` - Games library
-- `/animes` - Anime collection
-- `/settings` - User settings
+- `/URLexeNcode_Iframe4.js` - Main proxy home page
+- `/URLexeNcode_Iframe4.js-page` - Alternative home
+- `/URLexeNcode_Iframe5.js` - Applications library
+- `/URLexeNcode_Iframe3.js` - Games library
+- `/URLexeNcode_Iframe2.js` - Anime collection
+- `/URLexeNcode_Iframe6.js` - User settings
 - `/t` - Proxy search interface
 - `/proxyhome` - Proxy home page
-- `/song` - Web music player
+- `/URLexeNcode_Iframe1.js` - Web music player
 - `/resources` - Resource links
 - `/learn` - Educational content (disguise)
 
