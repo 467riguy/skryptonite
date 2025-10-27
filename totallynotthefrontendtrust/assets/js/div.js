@@ -145,6 +145,11 @@ function generateRandomWord() {
 }
 setInterval(generateRandomWord, 2000);
 
+
+
+
+
+// STATUS
 document.addEventListener('DOMContentLoaded', function() {
     const statusElement = document.getElementById('status-display');
 
@@ -201,6 +206,14 @@ document.addEventListener('DOMContentLoaded', function() {
         batteryInfo = 'Battery info unavailable';
         updateStatusDisplay();
     }
+
+
+
+
+
+
+
+    
     // --- Particle functions (integrated) ---
     const particles = [];
     const connections = [];

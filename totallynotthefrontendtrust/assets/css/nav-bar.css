@@ -175,13 +175,13 @@ animation: gradientAnimation 5s ease infinite;
 /* Base animation style */
 .animated-content {
     opacity: 0;
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
 }
 /* --- Container intro (slides up from bottom) --- */
 .container.animated-content {
   opacity: 0;
-  transform: scale(2) translateY(100px); /* start offset */
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translatey(-2500px); /* start offset */
+
 }
 
 .container.animated-content.show {
