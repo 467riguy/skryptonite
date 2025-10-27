@@ -630,25 +630,6 @@ color: blue;
         font-size: 1em;
     }
 }
-/* Base animation style */
-.animated-content {
-    opacity: 0;
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-}
-
-
-
-
-/* Container starts from +100px (bottom) */
-.container.animated-content {
-    transform: translateY(50px);
-}
-
-/* When show is added */
-.animated-content.show {
-    opacity: 1;
-    transform: translateY(0);
-}
 /*#live-clock {
     border: 1px solid ghostwhite;
     font-size: 1.8em;
