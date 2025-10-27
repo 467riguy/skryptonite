@@ -180,11 +180,7 @@ animation: gradientAnimation 5s ease infinite;
 /* --- Container intro (slides up from bottom) --- */
 .container.animated-content {
   opacity: 0;
-<<<<<<< HEAD
-  transform: translateY(50px) scale(2); /* start offset */
-=======
   transform: scale(2) translateY(100px); /* start offset */
->>>>>>> cf23e6a6c7144cfe3c9a2eaf1c4e1075a9a95b86
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
@@ -196,11 +192,7 @@ animation: gradientAnimation 5s ease infinite;
 /* --- Nav intro (slides in from left) --- */
 nav.animated-content {
   opacity: 0;
-<<<<<<< HEAD
-  transform: translateX(-50px) scale(2); /* start offset */
-=======
   transform: translateX(-50px) scale(-2); /* start offset */
->>>>>>> cf23e6a6c7144cfe3c9a2eaf1c4e1075a9a95b86
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
