@@ -567,7 +567,7 @@ color: blue;
     background: linear-gradient(45deg, var(--primary-light), var(--primary-color));
     transform: scale(1.1) translatey(-2px); /* Slight enlargement on hover */
     transition: background 0.3s ease, transform 0.2s ease;
-    
+
 }
 
 /* --- Open Blank Button --- */
@@ -1043,7 +1043,7 @@ color: blue;
 }
 
 @media (max-width: 480px) {
-    
+
 
     #music-player-controls {
         gap: 10px;

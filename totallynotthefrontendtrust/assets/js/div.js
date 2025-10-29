@@ -145,66 +145,7 @@ function generateRandomWord() {
 }
 setInterval(generateRandomWord, 2000);
 
-
-
-
-
-// STATUS
 document.addEventListener('DOMContentLoaded', function() {
-      const particles = [];
-        const connections = [];
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            const size = Math.random() * 4 + 2; // Particle size between 2px and 6px
-            particle.style.width = `${size}px`;
-            particle.style.height = `${size}px`;
-            particle.style.left = `${Math.random() * window.innerWidth}px`;
-            particle.style.top = `${Math.random() * window.innerHeight}px`;
-            document.body.appendChild(particle);
-            particles.push(particle);
-
-            // Remove the particle after some time
-            setTimeout(() => {
-                particle.remove();
-                particles.splice(particles.indexOf(particle), 1);
-            }, 5000); // Particles last for 5 seconds
-        }
-
-        function connectParticles() {
-            const distance = 150; // Connect particles within this distance
-            const connectionLine = document.createElement('div');
-
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[j].offsetLeft - particles[i].offsetLeft;
-                    const dy = particles[j].offsetTop - particles[i].offsetTop;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < distance) {
-                        connectionLine.className = 'line';
-                        const lineX = (particles[i].offsetLeft + particles[j].offsetLeft) / 2;
-                        const lineY = (particles[i].offsetTop + particles[j].offsetTop) / 2;
-                        const angle = Math.atan2(dy, dx);
-                        const length = dist;
-
-                        connectionLine.style.width = `${length}px`;
-                        connectionLine.style.transform = `translate(${lineX}px, ${lineY}px) rotate(${angle}rad)`;
-                        document.body.appendChild(connectionLine);
-                        connections.push(connectionLine);
-                    }
-                }
-            }
-
-            // Remove connection lines after a short duration
-            setTimeout(() => {
-                connections.forEach(line => line.remove());
-                connections.length = 0;
-            }, 1000);
-        }
-       setInterval(updateStatusDisplay, 1000);
-        setInterval(createParticle, 200);
-        setInterval(connectParticles, 800);
     const statusElement = document.getElementById('status-display');
 
     // Check for the status element immediately
@@ -260,15 +201,61 @@ document.addEventListener('DOMContentLoaded', function() {
         batteryInfo = 'Battery info unavailable';
         updateStatusDisplay();
     }
-
-
-
-
-
-
-
-    
     // --- Particle functions (integrated) ---
+    const particles = [];
+    const connections = [];
+    function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        const size = Math.random() * 4 + 2; // Particle size between 2px and 6px
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${Math.random() * window.innerWidth}px`;
+        particle.style.top = `${Math.random() * window.innerHeight}px`;
+        document.body.appendChild(particle);
+        particles.push(particle);
+
+        // Remove the particle after some time
+        setTimeout(() => {
+            particle.remove();
+            particles.splice(particles.indexOf(particle), 1);
+        }, 5000); // Particles last for 5 seconds
+    }
+
+    function connectParticles() {
+        const distance = 150; // Connect particles within this distance
+        const connectionLine = document.createElement('div');
+
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                const dx = particles[j].offsetLeft - particles[i].offsetLeft;
+                const dy = particles[j].offsetTop - particles[i].offsetTop;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < distance) {
+                    connectionLine.className = 'line';
+                    const lineX = (particles[i].offsetLeft + particles[j].offsetLeft) / 2;
+                    const lineY = (particles[i].offsetTop + particles[j].offsetTop) / 2;
+                    const angle = Math.atan2(dy, dx);
+                    const length = dist;
+
+                    connectionLine.style.width = `${length}px`;
+                    connectionLine.style.transform = `translate(${lineX}px, ${lineY}px) rotate(${angle}rad)`;
+                    document.body.appendChild(connectionLine);
+                    connections.push(connectionLine);
+                }
+            }
+        }
+
+        // Remove connection lines after a short duration
+        setTimeout(() => {
+            connections.forEach(line => line.remove());
+            connections.length = 0;
+        }, 1000);
+    }
+   setInterval(updateStatusDisplay, 1000);
+    setInterval(createParticle, 200);
+    setInterval(connectParticles, 800);
 });
 
 
