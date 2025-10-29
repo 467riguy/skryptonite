@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
   navigator.serviceWorker.register("../sw.js?proxy", {
-    scope: "/win/",
+    scope: "/john/",
   });
 });
 
@@ -45,11 +45,11 @@ function processUrl(value, path) {
   const dy = localStorage.getItem("dy");
 
   if (dy === "true") {
-    window.location.href = `/win/item/${__uv$config.encodeUrl(url)}`;
+    window.location.href = `/john/wick/${__uv$config.encodeUrl(url)}`;
   } else if (path) {
     location.href = path;
   } else {
-    window.location.href = `/win/${__uv$config.encodeUrl(url)}`;
+    window.location.href = `/john/${__uv$config.encodeUrl(url)}`;
   }
 }
 
@@ -62,7 +62,7 @@ function blank(value) {
 }
 
 function dy(value) {
-  processUrl(value, `/win/item/${__uv$config.encodeUrl(value)}`);
+  processUrl(value, `/john/wick/${__uv$config.encodeUrl(value)}`);
 }
 
 function isUrl(val = "") {

@@ -19,7 +19,7 @@ self.addEventListener("fetch", (event) => {
       }
 
       // Priority 2: UV service worker routing for '/win/' URLs
-      if (event.request.url.startsWith(`${location.origin}/win/`)) {
+      if (event.request.url.startsWith(`${location.origin}/john/`)) {
         return await uv.fetch(event);
       }
 

@@ -1,8 +1,5 @@
-setTimeout(() => {
-  alert("Particles were removed here because they were causing lag.");
-}, 2650);
 window.addEventListener("load", () => {
-  navigator.serviceWorker.register("../sw.js?v=07-03-big25", { scope: "/win/" });
+  navigator.serviceWorker.register("../sw.js?v=07-03-big25", { scope: "/john/" });
   const form = document.getElementById("4m");
   const input = document.getElementById("searchPass");
   if (form && input) {
@@ -22,7 +19,7 @@ window.addEventListener("load", () => {
     const activeIframe = Array.from(iframeContainer.querySelectorAll("iframe")).find(
       iframe => iframe.classList.contains("active"),
     );
-    activeIframe.src = `/win/${__uv$config.encodeUrl(url)}`;
+    activeIframe.src = `/john/${__uv$config.encodeUrl(url)}`;
     activeIframe.dataset.tabUrl = url;
     input.value = url;
     console.log(activeIframe.dataset.tabUrl);
@@ -93,7 +90,7 @@ newIframe.addEventListener("load", () => {
     if (GoUrl.includes("/e/")) {
       newIframe.src = window.location.origin + GoUrl;
     } else {
-      newIframe.src = `${window.location.origin}/win/${GoUrl}`;
+      newIframe.src = `${window.location.origin}/john/${GoUrl}`;
       
     }
   } else {
@@ -107,11 +104,11 @@ newIframe.addEventListener("load", () => {
     if (GoUrl.includes("/e/")) {
       newIframe.src = window.location.origin + GoUrl;
     } else {
-      newIframe.src = `${window.location.origin}/win/${GoUrl}`;
+      newIframe.src = `${window.location.origin}/john/${GoUrl}`;
       //newIframe.src = `/proxyhome`;
     }
   } else {
-     newIframe.src = `${window.location.origin}/win/${GoUrl}`;
+     newIframe.src = `${window.location.origin}/john/${GoUrl}`;
   //  newIframe.src = "/proxyhome";
   }
 }
@@ -359,17 +356,17 @@ function Load() {
     activeIframe.contentWindow.document.readyState === "complete"
   ) {
     const website = activeIframe.contentWindow.document.location.href;
-    if (website.includes("/win/")) {
+    if (website.includes("/john/")) {
       const websitePath = website
         .replace(window.location.origin, "")
-        .replace("/win/", "");
+        .replace("/john/", "");
       localStorage.setItem("decoded", websitePath);
       const decodedValue = decodeXor(websitePath);
       document.getElementById("iv").value = decodedValue;
-    } else if (website.includes("/win/item")) {
+    } else if (website.includes("/john/wick/")) {
       const websitePath = website
         .replace(window.location.origin, "")
-        .replace("/win/item", "");
+        .replace("/john/wick/", "");
       const decodedValue = decodeXor(websitePath);
       localStorage.setItem("decoded", websitePath);
       document.getElementById("iv").value = decodedValue;
