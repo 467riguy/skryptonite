@@ -7,10 +7,8 @@ import chalk from "chalk";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
-import basicAuth from "express-basic-auth";
 import mime from "mime";
 import fetch from "node-fetch";
-import config from "./config.js";
 
 console.log(chalk.yellow("Running server..."));
 
@@ -21,17 +19,6 @@ const bareServer = createBareServer("/fq/");
 const PORT = process.env.PORT || 5000;
 const cache = new Map();
 const CACHE_TTL = 30 * 24 * 60 * 60 * 1000; // Cache for 30 Days
-
-if (config.challenge === true) {
-  console.log(
-    chalk.green("Password protection is enabled. It's for teachers if they want to hop on.")
-  );
-  // biome-ignore lint/complexity/noForEach:
-  Object.entries(config.users).forEach(([username, password]) => {
-    console.log(chalk.blue(`Username: ${username}, Password: ${password}`));
-  });
-  app.use(basicAuth({ users: config.users, challenge: true }));
-}
 
 app.get("/e/*", async (req, res, next) => {
   try {
@@ -105,13 +92,11 @@ const routes = [
   { path: "/URLexeNcode_Iframe3.js", file: "/real_files/games.html" },
   { path: "/URLexeNcode_Iframe6.js", file: "/real_files/settings.html"},
   { path: "/URLexeNcode_Iframe7.js", file: "/real_files/proxysearch.html" },
-  { path: "/learnmathhere", file: "/index.html" },
+  { path: "/learnmathhere", file: "/trick_files/index.html" },
+  { path: "/signup", file: "/trick_files/password_input.html" },
   { path: "/URLexeNcode_Iframe4.js", file: "/real_files/index.html" },
   { path: "/URLexeNcode_Iframe2.js", file: "/real_files/anime.html" },
   { path: "/URLexeNcode_Iframe1.js", file: "/real_files/song.html" },
-  { path: "/proxyhome", file: "/real_files/proxyhome.html" },
-  { path: "/resources", file: "/trick_files/resource.html" },
-  { path: "/learn", file: "/trick_files/learnmore.html" },
   { path: "/testing", file: "/real_files/testing.html" },
   { path: "/m", file: "/real_files/m.html" },
   { path: "/ts_1.js", file: "test_files/test_subject1.html"},
