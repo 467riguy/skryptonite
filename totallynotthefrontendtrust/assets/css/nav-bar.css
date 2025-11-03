@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 :root {
-  --primary-color: blue;
+    --primary-color: blue;
     /*--primary-color: #7b68ee;*/
     --primary-light: #9a88ff;
     --secondary-color: #5d5c61;
@@ -33,6 +33,95 @@
     min-height: 100%; 
     pointer-events: none;
 }
+/* --- Top Nav Specific Styles (Modified for Centering) --- */
+nav {
+  /* Positioning: Top bar */
+  width: 100%;
+  height: auto; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  /* Appearance */
+  background-color: var(--glass-mid);
+  border-bottom: 1px solid var(--glass-border); 
+  padding: 10px 20px; 
+  box-shadow: 0 4px 10px var(--shadow-strong); 
+
+  /* Flexbox for main layout */
+  display: flex;
+  /* CHANGE: Use space-between again to separate logo and links */
+  justify-content: space-between; 
+  align-items: center;
+
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center; 
+    gap: 20px;
+}
+.logo {
+    font-family: serif;
+    color: var(--text-color);
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0; 
+    text-decoration: none;
+     transition: color 0.3s ease;
+}
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row; 
+    gap: 5px; 
+    width: auto; 
+    align-items: center;
+}
+
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 8px 15px; /* Reduced padding for top bar look */
+    border-radius: 10px;
+    transition: color 0.3s ease, transform 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto; /* Auto width */
+}
+
+/* --- Hover and Active Styles (Unchanged functionality) --- */
+.nav-links i.cuhs {
+  display: inline-block;
+  transition: transform 0.6s ease;
+}
+.nav-links li a:hover {
+    color: blue;
+     animation: glowingAnimation 4s ease-in-out infinite;
+}
+
+.nav-links li a:hover i.cuhs {
+  transform: rotate(720deg);
+}
+
+.nav-links li a.active { 
+    color: blue;
+     animation: glowingAnimation 4s ease-in-out infinite;
+}
+/* SIDEBAR NAV */
+/*
 nav {
   width: 200px;
   height: 100vh;
@@ -62,10 +151,10 @@ nav {
     transition: color 0.3s ease;
 }
 .nav-container {
-    width: 100%; /* Full width of the sidebar */
+    width: 100%;
     display: flex;
-    flex-direction: column; /* Stack links vertically */
-    align-items: center; /* Center items */
+    flex-direction: column;
+    align-items: center;
 }
 
 .nav-links {
@@ -73,30 +162,28 @@ nav {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column; /* Stack nav items vertically */
-    gap: 15px; /* Space out nav items */
-    width: 100%; /* Full width of the sidebar */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
 }
 
 .nav-links li a {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 600;
-    padding: 12px 18px; /* Padding for button shape */
-    border-radius: 10px; /* Rounded corners */
+    padding: 12px 18px;
+    border-radius: 10px;
     transition: color 0.3s ease, transform 0.6s ease;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center text within the button */
-    gap: 8px; /* Space between icon and text */
-    width: 80%; /* Give buttons a width and center them */
+    justify-content: center;
+    gap: 8px;
+    width: 80%;
 }
-
-/* base: make the icon rotatable */
 .nav-links i.cuhs {
-  display: inline-block;              /* required for transform */
-  transition: transform 0.6s ease;    /* smooth spin */
+  display: inline-block;
+  transition: transform 0.6s ease;
 }
 .nav-links li a:hover {
     color: blue;
@@ -111,7 +198,7 @@ nav {
 .nav-links li a.active { 
     color: blue;
      animation: glowingAnimation 4s ease-in-out infinite;
-}
+}*/
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
@@ -191,7 +278,7 @@ animation: gradientAnimation 5s ease infinite;
 /* --- Nav intro (slides in from left) --- */
 nav.animated-content {
   opacity: 0;
-  transform: translateX(-50px) scale(-2); /* start offset */
+  transform: translateY(-50px); /* start offset */
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 

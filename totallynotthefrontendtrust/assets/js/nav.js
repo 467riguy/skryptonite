@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navHTML = `
-    <div id="backdrop" class="backdrop"></div> <!-- Added display: block; to make it open by default -->
-    <nav class="animated-content closed" id="main-nav"> <!-- Removed animated-content closed class to make it open by default -->
+    <div id="backdrop" class="backdrop" style="display: block;"></div> <!-- Added display: block; to make it open by default -->
+    <nav class="animated-content" id="main-nav"> <!-- Removed animated-content closed class to make it open by default -->
       <div class="nav-container">
         <ul class="nav-links">
       <!--    <div class="logo">SKR</div>-->
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>
       </div>
     </nav>
-    <button id="nav-toggle"><i class="fas fa-bars"></i></button> <!-- Changed icon to times instead of bars to make it open by default -->
+  <!--  <button id="nav-toggle"><i class="fas fa-times"></i></button>--> <!-- Changed icon to times instead of bars to make it open by default -->
   `;
 
   document.body.insertAdjacentHTML("afterbegin", navHTML);
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
       left: 0;
       width: 100%;
       height: 100%;
-      display: none; /* Best */
-      background-color: rgba(0, 0, 0, 0.5);
+       /* display: none; 
+      background-color: rgba(0, 0, 0, 0.5);*/
       z-index: 999;
       transition: all 0.3s ease;
     }
