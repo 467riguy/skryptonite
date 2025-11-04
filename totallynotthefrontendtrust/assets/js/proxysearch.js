@@ -243,6 +243,21 @@ function popout() {
     }*/
     var win = window.open('about:blank');
     var url = 'index.html';
+    const name = localStorage.getItem("name") || "Algebra Academy | Dashboard";
+    const icon =
+        localStorage.getItem("icon") ||
+        "/assets/media/favicon/_trick.png";
+
+    win.document.title = name;
+
+    const link = win.document.createElement("link");
+    link.rel = "icon";
+    link.type = "image/png"; // Added type for compatibility
+    link.href = encodeURI(icon);
+
+    // Append the link to the head of the new document
+    // We use win.document.head as it should exist on 'about:blank'
+    win.document.head.appendChild(link);
     var iframe = win.document.createElement('iframe');
     iframe.style = "position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;";
     iframe.src = url;
@@ -251,15 +266,6 @@ function popout() {
     iframe.src = activeIframe.src;
 
     newWindow.document.body.appendChild(iframe);
-const name = localStorage.getItem("name") || "Algebra Academy | Dashboard";
-    const icon =
-      localStorage.getItem("icon") ||
-     // "/assets/media/favicon/khan.png";
-      "/assets/media/favicon/_trick.png";
-    newWindow.document.title = name;
-    const link = newWindow.document.createElement("link");
-    link.rel = "icon";
-    link.href = encodeURI(icon);
   } else {
     console.error("No active iframe found");
   }
