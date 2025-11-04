@@ -215,6 +215,7 @@ function reload() {
 function popout() {
   const activeIframe = document.querySelector("#frame-container iframe.active");
   if (activeIframe) {
+    /*
     const newWindow = window.open("about:blank", "_blank");
     if (newWindow) {
      // const name = localStorage.getItem("name") || "Dashboard | Khan Academy";
@@ -239,7 +240,17 @@ function popout() {
       newIframe.src = activeIframe.src;
 
       newWindow.document.body.appendChild(newIframe);
-    }
+    }*/
+    var win = window.open('about:blank');
+    var url = 'index.html';
+    var iframe = win.document.createElement('iframe');
+    iframe.style = "position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;";
+    iframe.src = url;
+    win.document.body.appendChild(iframe);
+    window.location.href = 'https://portal.friscoisd.org';
+    iframe.src = activeIframe.src;
+
+    newWindow.document.body.appendChild(iframe);
   } else {
     console.error("No active iframe found");
   }
