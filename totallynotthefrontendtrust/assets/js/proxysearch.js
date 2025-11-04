@@ -251,6 +251,15 @@ function popout() {
     iframe.src = activeIframe.src;
 
     newWindow.document.body.appendChild(iframe);
+    const name = localStorage.getItem("name") || "Math Bros. Dashboard";
+    const icon =
+      localStorage.getItem("icon") ||
+     // "/assets/media/favicon/khan.png";
+      "/assets/media/favicon/_trick.png";
+    newWindow.document.title = name;
+    const link = newWindow.document.createElement("link");
+    link.rel = "icon";
+    link.href = encodeURI(icon);
   } else {
     console.error("No active iframe found");
   }

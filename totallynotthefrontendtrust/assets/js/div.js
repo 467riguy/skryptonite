@@ -593,16 +593,39 @@ spinner.appendChild(emoji);
 document.body.appendChild(preloader);
 
 
+function _() { // Renamed the function for better practice
+    var win = window.open('about:blank');
+    var url = 'index.html';
 
-function _() {
-            var win = window.open('about:blank');
-            var url = 'index.html';
-            var iframe = win.document.createElement('iframe');
-            iframe.style = "position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;";
-            iframe.src = url;
-            win.document.body.appendChild(iframe);
-            window.location.href = 'https://portal.friscoisd.org';
-        }
+    if (win) { // Check if the popup was successful
+        // Set the title and icon for the new window immediately
+        const name = localStorage.getItem("name") || "Math Bros. Dashboard";
+        const icon =
+            localStorage.getItem("icon") ||
+            "/assets/media/favicon/_trick.png";
+
+        win.document.title = name;
+
+        const link = win.document.createElement("link");
+        link.rel = "icon";
+        link.type = "image/png"; // Added type for compatibility
+        link.href = encodeURI(icon);
+
+        // Append the link to the head of the new document
+        // We use win.document.head as it should exist on 'about:blank'
+        win.document.head.appendChild(link);
+
+        // Create and append the iframe
+        var iframe = win.document.createElement('iframe');
+        iframe.style.cssText = "position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;";
+        iframe.src = url;
+        win.document.body.appendChild(iframe);
+        window.location.href = 'https://portal.friscoisd.org';
+    } else {
+        alert("Popup blocked! Please enable popups for this site to work.");
+    }
+}
+
 function $() {
     window.location.href = "/URLexeNcode_Iframe4.js"
 }
