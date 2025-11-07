@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:description" content="Browse freely. Stay private.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destiny Rise — Proxy</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* --- Improved Styling --- */
+    
+    @keyframes gradient-flow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      /* New animated gradient background */
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #0f0c29);
+      background-size: 400% 400%;
+      animation: gradient-flow 15s ease infinite;
+      color: #f0f0f0; /* Brighter base text */
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden; /* Hide scrollbars from gradient */
+    }
+
+    h1 {
+      font-size: 2.75rem; /* Larger */
+      font-weight: 700;
+      letter-spacing: 1px; /* Tighter */
+      margin-bottom: 10px;
+      /* Gradient text effect */
+      background: linear-gradient(90deg, #e0c3fc, #ffffff, #e0c3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    p {
+      color: #c0c0c0; /* Brighter subtitle */
+      margin-bottom: 40px;
+      font-size: 1.05rem;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      width: 90%;
+      max-width: 700px;
+      /* Glassmorphism effect */
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      
+      border-radius: 8px; /* Softer edges */
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-bar:hover,
+    .search-bar:focus-within { /* Highlight on focus */
+      border-color: rgba(255, 255, 255, 0.4);
+      /* Subtle purple glow */
+      box-shadow: 0 0 15px rgba(195, 174, 214, 0.2);
+    }
+
+    .search-bar input {
+      flex: 1;
+      background: transparent;
+      color: #ffffff; /* Pure white text */
+      border: none;
+      outline: none;
+      padding: 16px 20px; /* More padding */
+      font-size: 1rem;
+    }
+
+    .search-bar input::placeholder {
+        color: #b0b0b0; /* Lighter placeholder */
+    }
+
+    .search-bar button {
+      background: none;
+      border: none;
+      color: #c3aed6; /* Purple accent color */
+      padding: 0 20px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .search-bar button:hover {
+      color: #fff;
+    }
+
+    .links {
+      display: flex;
+      gap: 15px; /* Tighter gap */
+      margin-top: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .link {
+      padding: 10px 20px;
+      /* Glassmorphism for links */
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      color: #f0f0f0;
+      transition: all 0.3s ease;
+    }
+
+    .link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      transform: translateY(-2px); /* Subtle lift on hover */
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.85rem;
+      color: #999; /* Brighter for contrast */
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Destiny Rise</h1>
+  <p>Browse. Unblock. Stay free.</p>
+
+  <form id="proxyForm" class="search-bar" onsubmit="handleSearch(event)">
+    <input id="proxyInput" type="text" placeholder="Enter URL or search term..." autocomplete="off">
+    <button type="submit"><i class="fas fa-arrow-right"></i></button>
+  </form>
+
+  <div class="links">
+    <div class="link" onclick="go('https://youtube.com')">YouTube</div>
+    <div class="link" onclick="go('https://tiktok.com')">TikTok</div>
+    <div class="link" onclick="go('https://instagram.com')">Instagram</div>
+    <div class="link" onclick="go('https://discord.com')">Discord</div>
+    <div class="link" onclick="go('https://github.com/razzlerazing2/Destiny-Rise-6.0')">GitHub</div>
+  </div>
+
+  <footer>© 2025 Destiny Rise — minimalist proxy edition</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+  <script src="./assets/ultra/bundle.js"></script>
+  <script src="./assets/ultra/config.js"></script>
+
+  <script>
+    function go(url) {
+      if (typeof __uv$config === 'undefined') {
+        alert('Ultraviolet is not loaded.');
+        return;
+      }
+      const encoded = __uv$config.prefix + __uv$config.encodeUrl(url);
+      window.location.href = encoded;
+    }
+
+    function handleSearch(event) {
+      event.preventDefault();
+      const query = document.getElementById('proxyInput').value.trim();
+      if (!query) return;
+
+      // Detect if input is a URL
+      const isLikelyUrl = query.includes('.') && !query.includes(' ');
+      const finalUrl = isLikelyUrl
+        ? (query.startsWith('http') ? query : 'https://' + query)
+        : 'https://www.google.com/search?q=' + encodeURIComponent(query);
+
+      go(finalUrl);
+    }
+  </script>
+</body>
+</html>
